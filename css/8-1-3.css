@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+/*========= ページトップのためのCSS ===============*/
+
+/*リンクの形状*/
+#page-top a{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	background:#DF9A4F;
+	border-radius: 100%;
+	width: 80px;
+	height: 80px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase; 
+	text-decoration: none;
+	font-size:1rem;
+	transition:all 0.3s;
+}
+
+#page-top a:hover{
+	background: #FFF3E5;
+	color:#DF9A4F ;
+}
+
+/*リンクを右下に固定*/
+#page-top {
+	position: fixed;
+	right: 30px;
+	bottom:30px;
+	z-index: 2;
+    /*はじめは非表示*/
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(100px);
+}
+
+/*　左の動き　*/
+
+#page-top.LeftMove{
+	animation: LeftAnime 0.5s forwards;
+	visibility: visible; /* ここで表示する */
+}
+
+@keyframes LeftAnime{
+  from {
+    opacity: 0;
+	transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateX(0);
+  }
+}
+
+/*　右の動き　*/
+
+#page-top.RightMove{
+	animation: RightAnime 0.5s forwards;
+}
+@keyframes RightAnime{
+  from {
+  	opacity: 1;
+	transform: translateX(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateX(100px);
+  }
+}
+
